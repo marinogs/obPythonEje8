@@ -1,0 +1,3 @@
+El coche es de color Rojo.
+El coche tiene 5 puertas.
+El coche tiene 4 ruedas.

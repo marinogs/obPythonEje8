@@ -1,16 +1,45 @@
-# This is a sample Python script.
+# OpenBootcamp Curso Python Ejercicio 8
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# En este ejercicio, tendréis que crear un archivo py donde creéis un archivo txt, lo abráis y escribáis dentro del
+# archivo. Para ello, tendréis que acceder dos veces al archivo creado.
+#
+# Por último, tendréis que crear otro archivo py y dentro crearéis una clase Vehículo, haréis un objeto de ella,
+# lo guardaréis en un archivo y luego lo cargamos.
+
+from Vehiculo import Vehiculo
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def main():
+    crear = open("archivo.txt", "w")
+    crear.write("OpenBootcamp")
+    crear.close()
+
+    leer = open("archivo.txt", "r")
+    dato = leer.read()
+    print(dato)
+    leer.close()
+
+    coche = Vehiculo("Rojo", 5, 4)
+
+    nombreFileCoche = "cocheFile.txt"
+
+    cocheFileCrea = open(nombreFileCoche, "w")
+    cocheFile = open(nombreFileCoche, "a")
+    cocheFile.write(f'El coche es de color {coche.color}.\n')
+    cocheFile.write(f'El coche tiene {coche.numeroPuertas} puertas.\n')
+    cocheFile.write(f'El coche tiene {coche.numeroRuedas} ruedas.')
+    cocheFileCrea.close()
+    cocheFile.close()
+
+    cocheFileLeer = open(nombreFileCoche, "r")
+
+    datos = None
+    while datos != "":
+        datos = cocheFileLeer.readline()
+        print(datos)
+
+    cocheFileLeer.close()
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
